@@ -1,18 +1,22 @@
-let express = require('express')
-let app = express()
+const express = require('express')
+const app = express()
+const PORT = 3000;
+const moment = require('moment')
+app.use(express.static(__dirname + '/public'));
 
-app.use(express.static('public'))
-np
+var log = function(message){
+    var time = moment().format()
+    console.log('[server] @ '+ time + ' ' + message)
+}
+
+
 app.get('/adder', (req, res) => {
-    let num1 = parseInt(req.query.num1)
-    let num2 = parseInt(req.query.num2)
-    let sum = num1 + num2
-    let data = {
-        result: sum
-    }
-    res.json(data)
+    var num1 = parseInt(req.query.num1)
+    var num2 = parseInt(req.query.num2)
+    var sum = num1 + num2
+    res.send(''+sum+'')
 })
 
-app.listen(3000, () => {
-    console.log('Server started on port 3000')
+app.listen(PORT, () => {
+    log('Server listening on port' + PORT)
 })
