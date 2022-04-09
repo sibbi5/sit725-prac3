@@ -19,6 +19,6 @@
   "homepage": "https://github.com/NIKZ123/sit725-prac-3#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "moment": "^2.29.1"
+    "moment": "^2.29.2"
   }
 }
